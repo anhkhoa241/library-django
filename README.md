@@ -44,21 +44,23 @@ Giao diện thân thiện với **Bootstrap 5**, hỗ trợ đầy đủ các ng
 
 ---
 
-📂 Cấu trúc thư mục chính
------------------------
+## 📂 Cấu trúc thư mục chính
+
+```bash
 QuanLyThuVien/
 ├── library_system/     # Thư mục project Django chính
 │   ├── settings.py     # Cấu hình hệ thống
 │   └── urls.py         # Tuyến đường chính
 ├── library/            # App quản lý thư viện
-│   ├── migrations/     # Lịch sử thay đổi database
-│   ├── templates/      # Giao diện HTML (Base, Login, Library...)
-│   ├── models.py       # Định nghĩa 11 bảng dữ liệu
-│   ├── views.py        # Xử lý logic nghiệp vụ
-│   └── urls.py         # URL riêng của app library
-├── manage.py           # Công cụ điều khiển dự án
-├── requirements.txt    # Danh sách thư viện cần cài
-└── README.md           # Hướng dẫn này
+│   ├── migrations/     
+│   ├── templates/      
+│   ├── models.py       
+│   ├── views.py        
+│   └── urls.py         
+├── manage.py           
+├── requirements.txt    
+└── README.md           
+```
 
 
 ---
