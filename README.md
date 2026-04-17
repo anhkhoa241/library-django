@@ -44,26 +44,21 @@ Giao diện thân thiện với **Bootstrap 5**, hỗ trợ đầy đủ các ng
 
 ---
 
-## 📂 Cấu trúc thư mục chính
+📂 Cấu trúc thư mục chính
+-----------------------
 QuanLyThuVien/
-├── library_system/ # Thư mục project Django
-│ ├── settings.py
-│ ├── urls.py
-│ └── ...
-├── library/ # App chính
-│ ├── migrations/ # Các file migration
-│ ├── templates/ # Template HTML
-│ │ ├── base.html
-│ │ ├── registration/ # Đăng nhập, đăng ký
-│ │ └── library/ # Các trang chức năng
-│ ├── models.py # Định nghĩa 11 bảng dữ liệu
-│ ├── views.py # Xử lý logic
-│ ├── urls.py # URL của app
-│ ├── forms.py # Form đăng ký
-│ └── admin.py # Cấu hình Admin
-├── manage.py
-├── requirements.txt # Danh sách thư viện Python
-└── README.md # Hướng dẫn này
+├── library_system/     # Thư mục project Django chính
+│   ├── settings.py     # Cấu hình hệ thống
+│   └── urls.py         # Tuyến đường chính
+├── library/            # App quản lý thư viện
+│   ├── migrations/     # Lịch sử thay đổi database
+│   ├── templates/      # Giao diện HTML (Base, Login, Library...)
+│   ├── models.py       # Định nghĩa 11 bảng dữ liệu
+│   ├── views.py        # Xử lý logic nghiệp vụ
+│   └── urls.py         # URL riêng của app library
+├── manage.py           # Công cụ điều khiển dự án
+├── requirements.txt    # Danh sách thư viện cần cài
+└── README.md           # Hướng dẫn này
 
 
 ---
@@ -120,7 +115,3 @@ python manage.py createsuperuser
 
 # Khởi động Server
 python manage.py runserver
-
-
-
-![alt text](image.png)
