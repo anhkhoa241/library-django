@@ -1,0 +1,17 @@
+[
+  {
+    "model": "library.theloai",
+    "pk": 1,
+    "fields": { "ten_the_loai": "Công nghệ thông tin" }
+  },
+  {
+    "model": "library.sach",
+    "pk": 1,
+    "fields": {
+      "ten_sach": "Lập trình Python cơ bản",
+      "tac_gia": "Nguyễn Văn A",
+      "ma_the_loai": 1,
+      "so_luong": 10
+    }
+  }
+]

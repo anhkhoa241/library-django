@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Danh sách sách{% endblock %}
+{% block content %}
+<h2 class="mb-4">Danh sách sách</h2>
+
+<!-- Form tìm kiếm -->
+<form method="get" class="row g-3 mb-4">
+    <div class="col-auto">
+        <input type="text" name="q" class="form-control" placeholder="Nhập tên sách, tác giả..." value="{{ query }}">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Tìm</button>
+    </div>
+</form>
+
+<div class="row">
+    {% for sach in sach_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ sach.ten_sach }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ sach.tac_gia }}</h6>
+                    <p class="card-text">Thể loại: {{ sach.ma_the_loai.ten_the_loai }}</p>
+                    <p class="card-text">Số lượng: {{ sach.so_luong }}</p>
+                    <a href="{% url 'book_detail' sach.id %}" class="btn btn-sm btn-outline-info">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12"><p>Không tìm thấy sách nào.</p></div>
+    {% endfor %}
+</div>
+{% endblock %}

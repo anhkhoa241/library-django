@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Lịch sử mượn sách{% endblock %}
+{% block content %}
+<h2>Lịch sử mượn sách</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Mã phiếu</th>
+            <th>Ngày mượn</th>
+            <th>Hạn trả</th>
+            <th>Trạng thái</th>
+            <th>Sách</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pm in phieu_muon %}
+        <tr>
+            <td>{{ pm.id }}</td>
+            <td>{{ pm.ngay_muon|date:"d/m/Y" }}</td>
+            <td>{{ pm.ngay_tra_du_kien|date:"d/m/Y" }}</td>
+            <td>
+                {% if pm.trang_thai == 'Dang muon' %}
+                    <span class="badge bg-primary">Đang mượn</span>
+                {% elif pm.trang_thai == 'Qua han' %}
+                    <span class="badge bg-danger">Quá hạn</span>
+                {% else %}
+                    <span class="badge bg-success">Đã trả</span>
+                {% endif %}
+            </td>
+            <td>
+                {% for ct in pm.chitietmuon_set.all %}
+                    {{ ct.ma_sach.ten_sach }} ({{ ct.so_luong }})<br>
+                {% endfor %}
+            </td>
+            <td>
+                {% if pm.trang_thai != 'Da tra' %}
+                    <a href="{% url 'return_book' pm.id %}" class="btn btn-sm btn-warning">Trả sách</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">Bạn chưa có phiếu mượn nào.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

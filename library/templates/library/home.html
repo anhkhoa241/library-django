@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Trang chủ{% endblock %}
+{% block content %}
+<h2 class="mb-4"><i class="fas fa-book-open"></i> Sách mới nhập</h2>
+<div class="row">
+    {% for sach in sach_moi %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ sach.ten_sach }}</h5>
+                    <p class="card-text text-muted">{{ sach.tac_gia }}</p>
+                    <p class="card-text"><small>Thể loại: {{ sach.ma_the_loai.ten_the_loai }}</small></p>
+                    <p class="card-text"><strong>Số lượng còn: {{ sach.so_luong }}</strong></p>
+                    <a href="{% url 'book_detail' sach.id %}" class="btn btn-outline-primary btn-sm">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>Chưa có sách nào.</p>
+    {% endfor %}
+</div>
+{% endblock %}
